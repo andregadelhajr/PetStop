@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div *ngIf="(cesta$ | async) === null" >
+        <p>Seu cesta está vazio.</p>
+    </div>
+    
+    <div *ngIf="(cesta$ | async) as cesta">
+        <div class="pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-5 mb-1">                        
+                        <app-cesta-summary
+                            (decrement)="decrementItemQuantidade($event)"
+                            (increment)="incrementItemQuantidade($event)"
+                            (remove)="removeItemCesta($event)">
+                        </app-cesta-summary>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-6">
+                        <app-order-totals></app-order-totals>
+                        <a routerLink="/checkout" class="btn btn-outline-primary py-2 btn-block">
+                            Fazer o check-out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <h4>Erro interno do servidor - atualizar a página fará com que a exceção desapareça</h4>
+    <ng-container *ngIf="error">
+        <h5 class="text-danger">Error: {{error.message}}</h5>
+        <p class="font-weight-bold">Nota: se você está vendo isso, o Angular provavelmente não é responsável</p>
+        <p>o que fazer a seguir?</p>
+        <ol>
+            <li>Abra as ferramentas de desenvolvimento do Chrome</li>
+            <li>Inspecione a guia de rede</li>
+            <li>Verifique a solicitação com falha</li>
+            <li>Examine este URL de solicitação - verifique se está correto</li>
+            <li>Reproduza o erro no carteiro - se obtivermos a mesma resposta no carteiro, o problema NÃO é com
+                angular</li>
+        </ol>
+        <p>A seguir está o rastreamento de pilha - é aqui que sua investigação deve começar!</p>
+        <code class="mt-5" style="background-color: whitesmoke;">{{error.details}}</code>
+    </ng-container>
+</div>

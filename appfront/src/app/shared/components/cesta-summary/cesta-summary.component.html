@@ -1,0 +1,56 @@
+<ng-container *ngIf="cesta$ | async" >
+    <div class="table resposive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="border-0 " scope="col" [class.bg-light]="isCesta">
+                        <div class="p-2 px-3 ml-5 text-uppercase">Produto</div>
+                    </th>
+                    <th class="border-0  text-center" scope="col" [class.bg-light]="isCesta">
+                        <div class="p-2 text-uppercase align-middle">Preço</div>
+                    </th>
+                    <th class="border-0  text-center" scope="col" [class.bg-light]="isCesta">
+                        <div class="p-2 text-uppercase">Quantidade</div>
+                    </th>
+                    <th class="border-0  text-center" scope="col" [class.bg-light]="isCesta">
+                        <div class="p-2 text-uppercase">Total</div>
+                    </th>
+                    <th *ngIf="isCesta" class="border-0 bg-light text-center" scope="col">
+                        <div class="p-2 text-uppercase">Remover</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of (cesta$ | async).items">
+                    <th scope="row">
+                        <div class="p-2">
+                            <img src="{{i.imgUrl}}" alt="{{i.produtoNome}}" width="70" height="50">
+                            <div class="ml-3 d-inline-block align-middle">
+                                <h5 class="mb-0">
+                                    <a routerLink="shop/{{i.id}}" class="text-dark">{{i.produtoNome}}</a>
+                                </h5>
+                            <span class="text-muted font-weight-normal font-italic d-block">Categoria: {{i.categoria}}</span>    
+                            </div>
+                        </div>
+                    </th>
+                    <td class="align-middle text-center"><strong>{{i.preco | currency: 'BRL'}}</strong></td>
+                    <td class="align-middle text-center">
+                        <div >
+                            <i *ngIf="isCesta" (click)="decrementItemQuantidade(i)" class="fa fa-minus-circle mr-2" style="cursor: pointer; font-size: 1.5em; color: orange;"></i>
+                        <span class="font-weight-bold" style="font-size: 1.5em;">{{i.quantidade}}</span>
+                        <i *ngIf="isCesta" (click)="incrementItemQuantidade(i)" class="fa fa-plus-circle mx-2" style="cursor: pointer; font-size: 1.5em; color: orange;"></i>
+                        </div>
+                    </td>
+                    <td class="align-middle text-center"><strong>{{i.preco * i.quantidade | currency: 'BRL'}}</strong></td>
+                    <td class="align-middle text-center">
+                        <a class="text-danger">
+                            <i *ngIf="isCesta" (click)="removeItemCesta(i)" class="fa fa-trash" style="cursor: pointer; font-size: 1.5em;"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
+
+

@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 1,
+    "ShortName": "Sodex",
+    "Description": "Tempo de entrega mais rápido",
+    "DeliveryTime": "1-2 Dias",
+    "Price": 10
+  },
+  {
+    "Id": 2,
+    "ShortName": "PAC",
+    "Description": "Receba em 5 dias",
+    "DeliveryTime": "2-5 Dias",
+    "Price": 5
+  },
+  {
+    "Id": 3,
+    "ShortName": "Zé Delivery",
+    "Description": "Mais lento, mas barato",
+    "DeliveryTime": "5-10 Dias",
+    "Price": 2
+  },
+  {
+    "Id": 4,
+    "ShortName": "FREE",
+    "Description": "Free! Você recebe o que você paga",
+    "DeliveryTime": "1-2 Meses",
+    "Price": 0
+  }
+]
